@@ -1,0 +1,247 @@
+/* style.css — Portfolio page stylesheet
+   Scope: module-05-mini-project/html/
+   ------------------------------------------------------------ */
+
+/* ============================================================
+   Reset & Box-sizing
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   Base typography & colours
+   ============================================================ */
+:root {
+  --color-bg:       #0f1117;
+  --color-surface:  #1a1d27;
+  --color-border:   #2a2d3a;
+  --color-primary:  #4f9cf9;
+  --color-accent:   #38d9a9;
+  --color-text:     #e2e8f0;
+  --color-muted:    #8892a4;
+
+  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+
+  --radius: 8px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   Layout helpers
+   ============================================================ */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ============================================================
+   Hero / Header
+   ============================================================ */
+.hero {
+  background: linear-gradient(135deg, #0f1117 0%, #1a2340 100%);
+  border-bottom: 1px solid var(--color-border);
+  padding: 5rem 0 4rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   Badges (tech stack row)
+   ============================================================ */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  background-color: rgba(79, 156, 249, 0.15);
+  border: 1px solid rgba(79, 156, 249, 0.4);
+  color: var(--color-primary);
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+.section {
+  padding: 4rem 0;
+}
+
+.section--alt {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Underline accent on section headings */
+.section h2::after {
+  content: '';
+  display: block;
+  margin-top: 6px;
+  height: 3px;
+  width: 40px;
+  border-radius: 2px;
+  background: var(--color-accent);
+}
+
+.section p {
+  color: var(--color-muted);
+  max-width: 680px;
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   Card grid
+   ============================================================ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-bottom: 0.5rem;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card ul li {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  padding: 0.2rem 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.card ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  top: 0.28rem;
+}
+
+.card-meta {
+  font-size: 0.78rem !important;
+  font-family: var(--font-mono);
+  color: var(--color-accent) !important;
+  margin-top: 0.75rem !important;
+  opacity: 0.8;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-bottom: 0.4rem;
+}
+
+.footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.muted {
+  font-size: 0.8rem !important;
+  opacity: 0.55;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 600px) {
+  .hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}

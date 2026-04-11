@@ -1,0 +1,28 @@
+# Ignore SSH private key files — never commit these
+*.pem
+*.key
+*.ppk
+
+# Environment variable files
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Vim swap files
+*.swp
+*.swo
+
+# Terraform (if used later)
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Logs
+*.log
