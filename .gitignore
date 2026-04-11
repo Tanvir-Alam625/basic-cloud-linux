@@ -4,8 +4,6 @@
 *.ppk
 
 # Environment variable files
-.env
-.env.*
 !.env.example
 
 # macOS
@@ -26,3 +24,5 @@ desktop.ini
 
 # Logs
 *.log
+config.bat
+node_modules
