@@ -9,7 +9,7 @@ This module covers everything needed to host a website on your EC2 server: insta
 | 01 | [Nginx Installation](./01-nginx-installation/README.md) | Install, start, test nginx |
 | 02 | [Hosting a Static Website](./02-hosting-static-website/README.md) | Virtual hosts, serve HTML from a domain |
 | 03 | [Reverse Proxy](./03-reverse-proxy/README.md) | Proxy requests to an app server |
-| 04 | [Route53 & DNS](./04-route53-dns/README.md) | Create hosted zone, A records |
+| 04 | [Route53 & DNS](./04-route53-dns/README.md) | Create hosted zone, A records, CNAME — Console + CLI |
 | 05 | [Domain Mapping](./05-domain-mapping/README.md) | Point your domain to your EC2 server |
 | 06 | [SSL with Certbot](./06-ssl-certbot/README.md) | Free HTTPS with Let's Encrypt |
 
@@ -17,6 +17,7 @@ This module covers everything needed to host a website on your EC2 server: insta
 
 - Running EC2 instance from Module 01
 - UFW configured from Module 02
+- AWS CLI v2 configured with an IAM user (from Module 03) — required for Route53 and Security Group CLI tasks in topics 04–06
 - A registered domain name (for topics 04–06); you can complete 01–03 without one
 
 ## By the End of This Module

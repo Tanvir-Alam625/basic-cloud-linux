@@ -23,17 +23,24 @@ A production-ready web server on AWS that:
 ## Architecture
 
 ```
-Internet
+Your browser
+    │ HTTPS :443 / HTTP :80 → 301 redirect
+    ▼
+Route 53 — aws-basic.ostaddevops.click
+    │ A record
+    ▼
+Elastic IP (static — survives stop/start)
     │
-    ▼ HTTPS (443)
-AWS Security Group → EC2 Instance (Ubuntu 22.04)
-                         │
-                    UFW Firewall
-                         │
-                    Nginx (443 / 80→443 redirect)
-                         │
-                    /var/www/portfolio/
-                    (your HTML/CSS files)
+    ▼
+AWS Security Group
+    Inbound: :22 (your IP), :80 (0.0.0.0/0), :443 (0.0.0.0/0)
+    │
+    ▼
+EC2 t2.micro — Ubuntu 22.04 LTS
+    ├── UFW (OS firewall: 22, 80, 443)
+    └── Nginx
+          ├── :80 → 301 → https
+          └── :443 → /var/www/portfolio/ (SSL via Let’s Encrypt)
 ```
 
 ---
@@ -43,13 +50,14 @@ AWS Security Group → EC2 Instance (Ubuntu 22.04)
 ### Core Requirements (must complete)
 
 - [ ] EC2 instance launched (Ubuntu 22.04, t2.micro)
+- [ ] Elastic IP allocated and associated with the instance
 - [ ] Security Group configured (SSH from your IP, HTTP/HTTPS from anywhere)
 - [ ] SSH connection working with key pair
-- [ ] UFW enabled with correct rules
+- [ ] UFW enabled with correct rules (22, 80, 443)
 - [ ] Nginx installed and serving the site
 - [ ] Custom HTML website deployed to `/var/www/portfolio/`
 - [ ] Nginx server block configured for your domain
-- [ ] Domain pointing to EC2 via Route53 A record
+- [ ] Route53 A record pointing `aws-basic.ostaddevops.click` to the Elastic IP
 - [ ] HTTPS certificate issued and installed via Certbot
 - [ ] HTTP → HTTPS redirect working
 - [ ] SSL auto-renewal verified with `certbot renew --dry-run`

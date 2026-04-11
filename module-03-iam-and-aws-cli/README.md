@@ -17,12 +17,12 @@ To use the AWS CLI (covered in topic 04), you need an IAM user with programmatic
 
 ## Prerequisites
 
-- An AWS account with root access (for initial IAM setup)
+- An AWS account where you can create IAM users (use your IAM admin user — never use root credentials for day-to-day work)
 - Complete [Module 01](../module-01-aws-ec2-linux/README.md) and [Module 02](../module-02-linux-administration/README.md)
 
 ## By the End of This Module
 
-You'll understand AWS access control, be able to create IAM users with the right level of access, and operate AWS entirely from the command line.
+You'll understand AWS access control, be able to create IAM users and roles with the right level of access, attach and simulate policies, and operate AWS entirely from the command line using named profiles and `--query` filtering.
 
 
 ---
